@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 
 class MeetingSerializer(serializers.ModelSerializer):
-    user = serializers.ReadOnlyField(source='user.pk')
+    user = serializers.ReadOnlyField(source='user.username')
     
     def validate(self, attrs):
         if attrs['sinceWhen'] >= attrs['tilWhen']:
